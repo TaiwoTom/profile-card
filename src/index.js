@@ -5,7 +5,7 @@ import "./bootstrap-5.3.0-alpha3-dist/css/bootstrap.css";
 import profileImg from "./images/profile_image.jpeg";
 import tick from "./images/tick.png";
 
-const profileImage = (
+const ProfileImage = () => (
   <div>
     <img
       src={profileImg}
@@ -21,7 +21,7 @@ const name = "Taiwo Tom-Ayegunle";
 const jobTitle = "React Developer, Nigeria";
 const skillTitle = "Skills";
 
-const texts = (
+const Texts = () => (
   <header>
     <div className="texts">
       <div className="" style={{ display: "flex" }}>
@@ -42,7 +42,7 @@ const texts = (
   </header>
 );
 
-const skillBadges = (
+const SkillBadges = () => (
   <main>
     <div className="badges float-start mb-5">
       <span className="badge h3 p-2">HTML</span>
@@ -75,7 +75,7 @@ const skillBadges = (
 
 const workPeriodText = "Joined on Aug 30, 2023";
 
-const workPeriod = (
+const WorkPeriod = () => (
   <footer>
     <div>
       <p>&copy; {workPeriodText}</p>
@@ -83,15 +83,15 @@ const workPeriod = (
   </footer>
 );
 
-const jsxElement = (
+const JsxElement = () => (
   <div className="box1">
     <div className="box2">
-      {profileImage}
-      {texts}
-      {skillBadges}
-      {workPeriod}
+      <ProfileImage/>
+      <Texts/>
+      <SkillBadges/>
+      <WorkPeriod/>
     </div>
   </div>
 );
 const rootElement = document.getElementById("root");
-ReactDOM.render(jsxElement, rootElement);
+ReactDOM.render(<JsxElement/>, rootElement);
