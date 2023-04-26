@@ -17,30 +17,28 @@ const ProfileImage = () => (
   </div>
 );
 
-const name = "Taiwo Tom-Ayegunle";
-const jobTitle = "React Developer, Nigeria";
-const skillTitle = "Skills";
-
-const Texts = () => (
-  <header>
-    <div className="texts">
-      <div className="" style={{ display: "flex" }}>
-        <h3>{name}</h3>
-        <div>
-          <img
-            src={tick}
-            className="img-fluid pt-1 mx-2"
-            alt="tick"
-            width="30"
-            height="30"
-          />
+const Texts = ({ data: { name, jobTitle, skillTitle } }) => {
+  return (
+    <header>
+      <div className="texts">
+        <div className="" style={{ display: "flex" }}>
+          <h3>{name}</h3>
+          <div>
+            <img
+              src={tick}
+              className="img-fluid pt-1 mx-2"
+              alt="tick"
+              width="30"
+              height="30"
+            />
+          </div>
         </div>
+        <p>{jobTitle}</p>
+        <h4>{skillTitle}</h4>
       </div>
-      <p>{jobTitle}</p>
-      <h4>{skillTitle}</h4>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 const SkillBadges = () => (
   <main>
@@ -73,25 +71,31 @@ const SkillBadges = () => (
   </main>
 );
 
-const workPeriodText = "Joined on Aug 30, 2023";
-
-const WorkPeriod = () => (
+const WorkPeriod = (props) => (
   <footer>
     <div>
-      <p>&copy; {workPeriodText}</p>
+      <p>&copy; {props.workPeriodText}</p>
     </div>
   </footer>
 );
 
-const JsxElement = () => (
-  <div className="box1">
-    <div className="box2">
-      <ProfileImage/>
-      <Texts/>
-      <SkillBadges/>
-      <WorkPeriod/>
+const JsxElement = () => {
+  const data = {
+    name: "Taiwo Tom-Ayegunle",
+    jobTitle: "React Developer, Nigeria",
+    skillTitle: "Skills",
+  };
+  const workPeriodText = "Joined on Aug 30, 2023";
+  return (
+    <div className="box1">
+      <div className="box2">
+        <ProfileImage />
+        <Texts data={data} />
+        <SkillBadges />
+        <WorkPeriod workPeriodText={workPeriodText} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 const rootElement = document.getElementById("root");
-ReactDOM.render(<JsxElement/>, rootElement);
+ReactDOM.render(<JsxElement />, rootElement);
